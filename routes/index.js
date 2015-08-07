@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Imap = require('imap');
+var config = require("./config")
 var inspect = require("util").inspect;
 var fs = require('fs');
 
@@ -12,13 +13,7 @@ var all = 0;
 var noattachments = 0;
 var mimeType = [];
 
-var imap = new Imap({
-    user: 'jsduder@gmail.com',
-    password: 'furby@1234',
-    host: 'imap.gmail.com',
-    port: 993,
-    tls: true
-});
+var imap = new Imap(config);
 
 var attachmentsArr =  [];
 
